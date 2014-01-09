@@ -12,12 +12,12 @@ public class MainActivity extends ActionBarActivity
 {
 	public static final String TAG = "MainActivity";
 
-//	public interface FragmentCallBack
-//	{
-//		public void setOrientation(boolean isLandscape);
-//
-//		public void notifyConfigurationChanged(boolean isLandscape);
-//	}
+	// public interface FragmentCallBack
+	// {
+	// public void setOrientation(boolean isLandscape);
+	//
+	// public void notifyConfigurationChanged(boolean isLandscape);
+	// }
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -30,13 +30,13 @@ public class MainActivity extends ActionBarActivity
 	@Override
 	public void onConfigurationChanged(Configuration newConfig) {
 		Log.d(TAG, "[onConfigurationChanged] BackstackCount: " + getSupportFragmentManager().getBackStackEntryCount());
-//		for (int i = 0; i < getSupportFragmentManager().getBackStackEntryCount(); i++) {
-//			String name = getSupportFragmentManager().getBackStackEntryAt(i).getName();
-//			Fragment fragment = getSupportFragmentManager().findFragmentByTag(name);
-//			Log.d(TAG, "[onConfigurationChanged] fragment is : " + (fragment == null ? "null" : fragment.toString()));
-//			((FragmentCallBack) fragment)
-//					.notifyConfigurationChanged(newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE);
-//		}
+		// for (int i = 0; i < getSupportFragmentManager().getBackStackEntryCount(); i++) {
+		// String name = getSupportFragmentManager().getBackStackEntryAt(i).getName();
+		// Fragment fragment = getSupportFragmentManager().findFragmentByTag(name);
+		// Log.d(TAG, "[onConfigurationChanged] fragment is : " + (fragment == null ? "null" : fragment.toString()));
+		// ((FragmentCallBack) fragment)
+		// .notifyConfigurationChanged(newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE);
+		// }
 		super.onConfigurationChanged(newConfig);
 	}
 

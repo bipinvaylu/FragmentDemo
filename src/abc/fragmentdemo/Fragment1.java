@@ -25,7 +25,6 @@ public class Fragment1 extends Fragment
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.fragment1, null);
-		view.setBackgroundColor(android.R.color.holo_green_dark);
 		view.findViewById(R.id.btn).setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {

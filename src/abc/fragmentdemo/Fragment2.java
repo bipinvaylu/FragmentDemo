@@ -20,6 +20,12 @@ public class Fragment2 extends Fragment
 	}
 
 	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		Log.d(TAG, "[onCreate]");
+	}
+
+	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		Log.d(TAG, "[onActivityCreated]");
 		super.onActivityCreated(savedInstanceState);
@@ -40,6 +46,11 @@ public class Fragment2 extends Fragment
 		viewGroup.removeAllViewsInLayout();
 		View view = inflater.inflate(R.layout.fragment2, viewGroup);
 		initView(view);
+		if(mDualPanel) {
+			((MainActivity) getActivity()).setDetailFragment(Fragment2.this, new Fragment3());
+		} else {
+			((MainActivity) getActivity()).setFragment(Fragment2.this, new Fragment3());
+		}
 	}
 
 	public void removeDetailFragmentsFromStack() {
@@ -55,7 +66,6 @@ public class Fragment2 extends Fragment
 
 	protected void initView(View view) {
 		Log.d(TAG, "[initView]");
-		view.setBackgroundColor(android.R.color.holo_blue_dark);
 		View detailsFrame = view.findViewById(R.id.detail_layout);
 		mDualPanel = detailsFrame != null && detailsFrame.getVisibility() == View.VISIBLE;
 		view.findViewById(R.id.btn).setOnClickListener(new OnClickListener() {
@@ -68,17 +78,17 @@ public class Fragment2 extends Fragment
 				}
 			}
 		});
-		if(mDualPanel) {
-			((MainActivity) getActivity()).setDetailFragment(Fragment2.this, new Fragment3());
-		}
 	}
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		Log.d(TAG, "[onCreateView]");
-		removeDetailFragmentsFromStack();
+		// removeDetailFragmentsFromStack();
 		View view = inflater.inflate(R.layout.fragment2, container, false);
 		initView(view);
+		if(mDualPanel) {
+			((MainActivity) getActivity()).setDetailFragment(Fragment2.this, new Fragment3());
+		}
 		return view;
 	}
 
@@ -86,5 +96,10 @@ public class Fragment2 extends Fragment
 	public void onResume() {
 		Log.d(TAG, "[onResume]");
 		super.onResume();
+	}
+
+	@Override
+	public void onPause() {
+		super.onPause();
 	}
 }
