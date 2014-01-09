@@ -1,16 +1,12 @@
 package abc.fragmentdemo;
 
-import android.content.Context;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
-import android.view.Display;
 import android.view.Menu;
-import android.view.Surface;
-import android.view.WindowManager;
 
 public class MainActivity extends ActionBarActivity
 {
@@ -66,7 +62,7 @@ public class MainActivity extends ActionBarActivity
 
 	public void setDetailFragment(Fragment parent, Fragment child) {
 		Log.d(TAG, "[setDetailFragment]");
-		FragmentTransaction ft = parent.getChildFragmentManager().beginTransaction();
+		FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
 		ft.replace(R.id.detail_layout, child, "detailsFrag").disallowAddToBackStack();
 		ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
 		ft.commit();
