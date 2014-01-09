@@ -42,7 +42,6 @@ public class Fragment2 extends Fragment
 
 	protected void populateViewForOrientation(LayoutInflater inflater, ViewGroup viewGroup) {
 		Log.d(TAG, "[populateViewForOrientation]");
-		((MainActivity) getActivity()).removeDetailFragment(this);
 		viewGroup.removeAllViewsInLayout();
 		View view = inflater.inflate(R.layout.fragment2, viewGroup);
 		initView(view);
@@ -51,17 +50,6 @@ public class Fragment2 extends Fragment
 		} else {
 			((MainActivity) getActivity()).setFragment(Fragment2.this, new Fragment3());
 		}
-	}
-
-	public void removeDetailFragmentsFromStack() {
-		Log.d(TAG, "[removeDetailFragmentsFromStack]");
-		FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
-		Fragment detailsFrag = getChildFragmentManager().findFragmentByTag("detailFrag");
-		if(detailsFrag != null) {
-			Log.d(TAG, "[removeDetailFragmentsFromStack] -- IF");
-			transaction.remove(detailsFrag);
-		}
-		transaction.commit();
 	}
 
 	protected void initView(View view) {
